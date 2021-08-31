@@ -8,7 +8,8 @@ on:
 
 env:
   PYTHONIOENCODING: UTF-8
-  LANG: en_US
+  LC_ALL: en_US.utf-8
+  LANG: en_US.utf-8
   # To fix an error when running Poetry on Windows
   # (https://github.com/python-poetry/poetry/issues/2629),
   # we set Poetry's cache directory to .poetry_cache in the current directory.
