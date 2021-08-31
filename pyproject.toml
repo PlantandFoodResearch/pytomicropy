@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pytomicropy"
+version = "0.1.0"
+description = ""
+authors = ["Manu Lange <Manu.Lange@plantandfood.co.nz>"]
+
+[tool.poetry.scripts]
+pytomicropy = "pytomicropy.core:main"
+
+[tool.poetry.dependencies]
+# Only < 3.10 because of python-minifier pinning. Probably will still work.
+python = ">=3.9,<3.10"
+autoflake = "^1.4"
+strip-hints = "^0.1.10"
+python-minifier = "^2.4.2"
+f2format = "^0.8.6"
+click = "^8.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+tox-poetry = "^0.4.1"
+dunamai = "^1.6.0"
+black = "^21.8b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
