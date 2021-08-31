@@ -44,7 +44,13 @@ def minify(src: Path) -> None:
     "--input", required=True, help="Package root directory to convert", type=Path
 )
 @click.option("--output", required=True, help="Package output directory", type=Path)
-@click.option("--force", required=False, default=False, help="Overwrite output if it exists", type=bool)
+@click.option(
+    "--force",
+    required=False,
+    default=False,
+    help="Overwrite output if it exists",
+    type=bool,
+)
 def main(input: Path, output: Path, force: bool):
     input = input.resolve()
     output = output.resolve()
@@ -54,7 +60,9 @@ def main(input: Path, output: Path, force: bool):
         if force:
             shutil.rmtree(output)
         else:
-            raise FileExistsError("Output directory already exists and --force not specified")
+            raise FileExistsError(
+                "Output directory already exists and --force not specified"
+            )
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir).resolve()
         # Avoid shutil dir exists error
