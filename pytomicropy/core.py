@@ -44,16 +44,24 @@ def minify(src: Path) -> None:
     "--input", required=True, help="Package root directory to convert", type=Path
 )
 @click.option("--output", required=True, help="Package output directory", type=Path)
-def main(input: Path, output: Path):
+@click.option("--force", required=False, default=False, help="Overwrite output if it exists", type=bool)
+def main(input: Path, output: Path, force: bool):
     input = input.resolve()
+    output = output.resolve()
     if not input.exists():
         raise FileNotFoundError(f"{input} not found.")
+    if output.exists():
+        if force:
+            shutil.rmtree(output)
+        else:
+            raise FileExistsError("Output directory already exists and --force not specified")
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir).resolve()
+        # Avoid shutil dir exists error
+        tmp_path = tmp_path / "working"
         shutil.copytree(
             input,
             tmp_path,
-            dirs_exist_ok=True,
             ignore=shutil.ignore_patterns("__pycache__"),
         )
         for file in tmp_path.rglob("*.py"):
@@ -67,18 +75,14 @@ def main(input: Path, output: Path):
                 print(f"Failed on: {file}")
                 raise
 
-        if not output.exists():
-            output.mkdir()
-        if output.is_dir():
-            shutil.copytree(tmp_path, output, dirs_exist_ok=True)
-        elif output.suffix == "zip":
+        if not output.parent.exists():
+            output.parent.mkdir()
+        if output.suffix == "zip":
             shutil.make_archive(
                 str(output).rstrip(".zip"), root_dir=tmp_path, format="zip"
             )
         else:
-            raise ValueError(
-                "Unknown output, please select directory or file ending in *zip"
-            )
+            shutil.copytree(tmp_path, output)
 
 
 if __name__ == "__main__":
