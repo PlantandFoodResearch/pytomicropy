@@ -177,6 +177,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "mpy-cross"
+version = "1.16"
+description = "micropython mpy-cross distribution"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "mypy-extensions"
 version = "0.4.3"
 description = "Experimental type system extensions for programs checked with the mypy typechecker."
@@ -442,7 +450,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6.2,<3.10"
-content-hash = "93610950bbf5eb97a2e3c0db7c276f42f4aebf94c753e592a0041d54d4abc4d9"
+content-hash = "d07bf9267a414b0d77c615d8d26d1eb237d12c77f20ec6c90a5a285e7769b8d1"
 
 [metadata.files]
 atomicwrites = [
@@ -503,6 +511,14 @@ importlib-resources = [
 more-itertools = [
     {file = "more-itertools-8.8.0.tar.gz", hash = "sha256:83f0308e05477c68f56ea3a888172c78ed5d5b3c282addb67508e7ba6c8f813a"},
     {file = "more_itertools-8.8.0-py3-none-any.whl", hash = "sha256:2cf89ec599962f2ddc4d568a05defc40e0a587fbc10d5989713638864c36be4d"},
+]
+mpy-cross = [
+    {file = "mpy_cross-1.16-py2.py3-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:87f28475c0fd505f42514eb85c31333753cd4b9f20901f67ab827b66279ae614"},
+    {file = "mpy_cross-1.16-py2.py3-none-manylinux1_i686.whl", hash = "sha256:c75b21736a861ac242ae71acd7d7a2a3d780004ab5e8e85e2fc92e215763e235"},
+    {file = "mpy_cross-1.16-py2.py3-none-manylinux1_x86_64.whl", hash = "sha256:7dfc17f1a1a9eb501faa9edd980e346e955a79955f2c68e2167b1f809889f627"},
+    {file = "mpy_cross-1.16-py2.py3-none-manylinux2014_armv7l.whl", hash = "sha256:c1a3457ea02fcedc1476fff3e04cc4cb6cf951cb85cf9db58272da3ef843bb61"},
+    {file = "mpy_cross-1.16-py2.py3-none-win32.whl", hash = "sha256:e42285258fcee2337d8d3a01e0deb9069bcba7bd4fffea0600d0a211716e5ae7"},
+    {file = "mpy_cross-1.16-py2.py3-none-win_amd64.whl", hash = "sha256:114a2e1b79d82a261be5c3fc1936e419ee5a970b242b9ffe4adac3d9cd553613"},
 ]
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},

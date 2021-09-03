@@ -15,6 +15,7 @@ strip-hints = "^0.1.10"
 python-minifier = "^2.4.2"
 f2format = "^0.8.6"
 click = "^8.0.1"
+mpy-cross = "^1.16"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
