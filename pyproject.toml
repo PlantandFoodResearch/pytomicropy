@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytomicropy"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Manu Lange <Manu.Lange@plantandfood.co.nz>"]
 
@@ -9,16 +9,16 @@ pytomicropy = "pytomicropy.core:main"
 
 [tool.poetry.dependencies]
 # Only < 3.10 because of python-minifier pinning. Probably will still work.
-python = ">=3.6.2,<3.10"
+python = ">=3.6.2,<3.11"
 autoflake = "^1.4"
 strip-hints = "^0.1.10"
-python-minifier = "^2.4.2"
+python-minifier = "^2.5.0"
 f2format = "^0.8.6"
 click = "^8.0.1"
 mpy-cross = "^1.16"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2.5"
 tox-poetry = "^0.4.1"
 dunamai = "^1.6.0"
 black = "^21.8b0"
